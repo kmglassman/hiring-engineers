@@ -14,22 +14,21 @@ tags:
    - os:galliumos3.1
    - kernel:linux4.16.18
 ```
-
-
-
+<br/><br/>
+<br/><br/>
 Here is my host, named `katelyn.localhost`, and its tags, shown bottom right, on the Host Map page in Datadog.
-
-
+<br/><br/>
+<br/><br/>
 ![My host with tags](screenshots/host_with_tags.png)
-
-
-
+<br/><br/>
+<br/><br/>
+<br/><br/>
 I downloaded a PostgreSQL database on my machine and installed the corresponding Datadog integration to begin collecting those metrics and logs.  After creating user `datadog` and granting the role `pg_monitor` to that user,  here is a verification of the correct permissioning on my PostgreSQL database:
 
 ![Postgres connection OK](screenshots/postgres_connection_ok.png)
-
-
-
+<br/><br/>
+<br/><br/>
+<br/><br/>
 To make this integration more meaningful, I wanted to allow for metric collection and log integration.  To do so, I altered my `postgres.d/conf.yaml` [configuration file](https://github.com/kmglassman/hiring-engineers/blob/kmglassman-answers-test/conf-files/postgres.d_conf.yaml) to point to my host/port and to configure logging, shown here: 
 ```
 instances:
@@ -90,9 +89,9 @@ The output of a call to `sudo datadog-agent status`, shown below, verifies that 
 ![Postgres status](screenshots/postgres_status.png)
 
 ![Logs status](screenshots/logs_status.png)
-
-
-
+<br/><br/>
+<br/><br/>
+<br/><br/>
 I then introduced my own custom metric to begin tracking on my host.  I created a new check called `custom_check`, which generates a random value between 0 and 1000, using the [script](https://github.com/kmglassman/hiring-engineers/blob/kmglassman-answers-test/scripts/custom_check.py) `custom_check.py`.  
 
 **Bonus question**: To change the check's collection interval without modifing this Python file, I altered the check [configuration file](https://github.com/kmglassman/hiring-engineers/blob/kmglassman-answers-test/conf-files/custom_check.yaml), `custom_check.yaml`, as shown below:
